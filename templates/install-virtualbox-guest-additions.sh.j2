@@ -9,4 +9,4 @@ mount -o loop {{ VBoxGuestAdditions_iso_remote }} {{ VBoxGuestAdditions_mnt }}
 
 # Cleanup
 umount {{ VBoxGuestAdditions_mnt }}
-rm -rf {{ VBoxGuestAdditions_mnt }} {{ VBoxGuestAdditions_iso }}
+rm -rf {{ VBoxGuestAdditions_mnt }} {{ VBoxGuestAdditions_iso_remote }}
