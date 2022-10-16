@@ -2,7 +2,7 @@
 
 # Mount the disk image
 mkdir -p {{ VBoxGuestAdditions_mnt }}
-mount -o loop {{ VBoxGuestAdditions_iso }} {{ VBoxGuestAdditions_mnt }}
+mount -o loop {{ VBoxGuestAdditions_iso_remote }} {{ VBoxGuestAdditions_mnt }}
 
 # Install the drivers
 {{ VBoxGuestAdditions_mnt }}/VBoxLinuxAdditions.run
