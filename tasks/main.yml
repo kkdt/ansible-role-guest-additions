@@ -1,0 +1,28 @@
+---
+
+- name: Copy VBoxGuestAdditions.iso to remote server
+  become: true
+  ansible.builtin.copy:
+    src: "{{ VBoxGuestAdditions_iso_local }}"
+    dest: "{{ VBoxGuestAdditions_iso_remote }}"
+    remote_src: no
+
+- name: Install Packages for VirtualBox Guest Additions
+  become: true
+  ansible.builtin.package:
+    name: "{{ VBoxGuestAdditions_packages }}"
+    state: latest
+
+- name: Template install-guest-additions.sh
+  become: true
+  ansible.builtin.template:
+    src: install-guest-additions.sh.j2
+    dest: /root/install-guest-additions.sh
+    owner: root
+    group: root
+    mode: '0600'
+
+- name: Guest additions
+  become: true
+  ansible.builtin.script:
+    cmd: /root/install-guest-additions.sh

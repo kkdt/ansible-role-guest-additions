@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Mount the disk image
+mkdir -p {{ VBoxGuestAdditions_mnt }}
+mount -o loop {{ VBoxGuestAdditions_iso }} {{ VBoxGuestAdditions_mnt }}
+
+# Install the drivers
+{{ VBoxGuestAdditions_mnt }}/VBoxLinuxAdditions.run
+
+# Cleanup
+umount {{ VBoxGuestAdditions_mnt }}
+rm -rf {{ VBoxGuestAdditions_mnt }} {{ VBoxGuestAdditions_iso }}
