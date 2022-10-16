@@ -26,19 +26,19 @@ None
 
 ```yaml
 # Git/HTTPS
-- name: kkdt.vagrant
+- name: virtualbox-guest-additions
   src: git+https://github.com/kkdt/ansible-role-guest-additions.git
   scm: git
   version: master
 
 # Git/SSH
-- name: kddt.vagrant
+- name: virtualbox-guest-additions
   src: git+git@github.com:kkdt/ansible-role-guest-additions.git
   scm: git
   version: master
 
 # Git/File
-- name: kddt.vagrant
+- name: virtualbox-guest-additions
   src: git+file:///home/vagrant/ansible-role-guest-additions
   scm: git
   version: master
