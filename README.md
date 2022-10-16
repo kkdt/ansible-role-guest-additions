@@ -39,7 +39,7 @@ None
 
 # Git/File
 - name: kddt.vagrant
-  src: git+file:///home/kkdt/ansible-role-guest-additions
+  src: git+file:///home/vagrant/ansible-role-guest-additions
   scm: git
   version: master
 ```
@@ -54,7 +54,7 @@ ansible-galaxy role install --role-file requirements.yml --roles-path ~/.ansible
 - hosts: localhost
   connection: local
   roles:
-    - role: kkdt.vagrant
+    - role: virtualbox-guest-additions
       vars:
         VBoxGuestAdditions_iso_local: /Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso
         VBoxGuestAdditions_iso_remote: /tmp/VBoxGuestAdditions.iso
