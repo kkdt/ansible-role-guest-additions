@@ -17,7 +17,7 @@
   become: true
   ansible.builtin.template:
     src: install-virtualbox-guest-additions.sh.j2
-    dest: /root/install-virtualbox-guest-additions.sh.sh
+    dest: /root/install-virtualbox-guest-additions.sh
     owner: root
     group: root
     mode: '0600'
@@ -25,4 +25,4 @@
 - name: Guest additions
   become: true
   ansible.builtin.script:
-    cmd: /root/install-virtualbox-guest-additions.sh.sh
+    cmd: /root/install-virtualbox-guest-additions.sh
