@@ -10,19 +10,18 @@
 - name: Install Packages for VirtualBox Guest Additions
   become: true
   ansible.builtin.package:
-    name: "{{ VBoxGuestAdditions_packages }}"
+    name: "{{ __VBoxGuestAdditions_packages }}"
     state: latest
 
-- name: Template install-guest-additions.sh
+- name: Template install-virtualbox-guest-additions.sh
   become: true
   ansible.builtin.template:
     src: install-virtualbox-guest-additions.sh.j2
     dest: /root/install-virtualbox-guest-additions.sh
     owner: root
     group: root
-    mode: '0600'
+    mode: '0755'
 
 - name: Guest additions
   become: true
-  ansible.builtin.script:
-    cmd: /root/install-virtualbox-guest-additions.sh
+  ansible.builtin.shell: /root/install-virtualbox-guest-additions.sh
